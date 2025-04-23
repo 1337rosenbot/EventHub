@@ -1,0 +1,81 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: lightgrey;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+header {
+    background-color: #343a40 ;
+    margin-bottom: 2em;
+}
+
+.movieTitle {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+    padding: 0.5em;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    margin: 0.5em;
+    color: #fff
+
+}
+
+.footer {
+    flex-shrink: 0;
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+section {
+    padding: 3em;
+}
+
+h2 {
+    padding: 0.5em;
+    margin-top: 0.5em;
+}
+
+pre {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: larger;
+    margin-top: 1em;
+    line-height: 1.6;
+
+}
+
+.fs-5 {
+    font-size: 1.25rem !important;
+}
+
+.delete-account-form {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+
+
+

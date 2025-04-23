@@ -14,14 +14,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700&display=swap" \
             rel="stylesheet">
     <!--Custom CSS-->
-    <link rel="stylesheet" href="static/main.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark">
-        <ul>
-            <a class="navbar-brand" href="{{ url_for('index') }}">Home</a>
-         
-        </ul>
+    <nav class="navbar navbar-dark bg-dark justify-content-between">
+        <div class="navbar-nav flex-row">
+            <a class="navbar-brand" href="{{ url_for('home') }}">Home</a>
+            {% if not current_user.is_authenticated %}
+                <a class="navbar-brand" href="{{ url_for('users.register') }}">Register</a>
+                <a class="navbar-brand" href="{{ url_for('users.login') }}">Login</a>
+            {% endif %}
+            {% if current_user.is_authenticated %}
+                <a class="navbar-brand" href="{{ url_for('users.profile') }}">Profile</a>
+                <a class="navbar-brand" href="{{ url_for('events.create_event') }}">Create Event</a>
+                <a class="navbar-brand" href="{{ url_for('users.logout') }}">Log Out</a>
+            {% endif %}
+        </div>
+        {% if current_user.is_authenticated and request.endpoint == 'users.profile' %}
+        <form action="{{ url_for('users.delete_account') }}" method="POST" class="ml-auto delete-account-form">
+            <button type="submit" class="btn btn-danger btn-sm"
+                onclick="return confirm('Are you sure you want to delete your account? This cannot be undone.');">
+                Delete Account
+            </button>
+        </form>
+        {% endif %}
     </nav>
     <main>
         <div>

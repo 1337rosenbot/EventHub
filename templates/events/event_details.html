@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4">
+    {% if success %}
+        <div class="alert alert-success text-center">{{ success }}</div>
+    {% elif error %}
+        <div class="alert alert-danger text-center">{{ error }}</div>
+    {% endif %}
+    <h2 class="text-center">{{ event[2] }}</h2>
+    <ul class="list-group">
+        <li class="list-group-item"><strong>Event ID:</strong> {{ event[0] }}</li>
+        <li class="list-group-item"><strong>Date:</strong> {{ event[3] }}</li>
+        <li class="list-group-item"><strong>Location:</strong> {{ event[4] }}</li>
+        <li class="list-group-item"><strong>Description:</strong> {{ event[5] }}</li>
+    </ul>
+    <div class="d-flex justify-content-aside mt-2">
+        <a href="{{ url_for('home') }}" class="btn btn-secondary flex mr-2">Back to Events</a>
+        <form method="POST" action="{{ url_for('events.event_signup', event_id=event[0]) }}" class="flex-fill">
+            <button type="submit" class="btn btn-success w-100">Sign Up</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
